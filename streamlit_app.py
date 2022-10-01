@@ -77,8 +77,9 @@ def btTranslator(docxfile):
       files.add_paragraph(translated)
   # translated_text = "\n".join(translated_paragraphs)
   
-  # f=files.save(f"{NewFileName}.docx")
-  return files.save(f"New_File.docx")
+  f=files.save(f"NewFileName.docx")
+  #return files.save(f"New_File.docx")
+  return f
 st.title('Translator App')
 st.markdown("Translate from Docx file")
 st.sidebar.subheader("File Upload")
@@ -86,5 +87,5 @@ st.sidebar.subheader("File Upload")
 datas=st.sidebar.file_uploader("Original File")
 # data=getText("C:\Users\Ambresh C\Desktop\Python Files\Translators\Trail Doc of 500 words.docx")
 
-# st.sidebar.download_button(label='Download Translated File',file_name='Translated.docx')
-st.write(btTranslator(datas))
+st.sidebar.download_button(label='Download Translated File',file_name='Translated.docx', data=btTranslator(datas)) 
+#st.write(btTranslator(datas))
