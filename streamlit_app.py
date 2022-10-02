@@ -50,7 +50,7 @@ def btTranslator(docxfile):
   bigtext='''  '''
   for a in a1:
     bigtext=bigtext+'\n'+a
-  #files=Document()
+  files=Document()
   lt = LineTokenizer()
   batch_size = 8
   paragraphs = lt.tokenize(bigtext)   
@@ -78,18 +78,18 @@ def btTranslator(docxfile):
           translated += translated_batch
       translated = [tokenizer.decode(t, skip_special_tokens=True) for t in translated]
       translated_paragraphs += [" ".join(translated)]
-      #files.add_paragraph(translated)
+      files.add_paragraph(translated)
   translated_text = "\n".join(translated_paragraphs)
-  
+  files=files.save("Translated.docx")
   #f=files.save(f"NewFileName.docx")
-  #return files.save(f"New_File.docx")
-  return translated_text
+  return files
+  #return translated_text
 st.title('Translator App')
 st.markdown("Translate from Docx file")
 st.sidebar.subheader("File Upload")
 
 datas=st.sidebar.file_uploader("Original File")
-# data=getText("C:\Users\Ambresh C\Desktop\Python Files\Translators\Trail Doc of 500 words.docx")
+#data=getText("C:\Users\Ambresh C\Desktop\Python Files\Translators\Trail Doc of 500 words.docx")
 
-#st.sidebar.download_button(label='Download Translated File',file_name='Translated.docx', data=btTranslator(datas)) 
-st.text_area(label="",value=btTranslator(datas),height=100)
+st.sidebar.download_button(label='Download Translated File',file_name='Translated.docx', data=btTranslator(datas)) 
+# st.text_area(label="",value=btTranslator(datas),height=100)
