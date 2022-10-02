@@ -1,5 +1,5 @@
 import streamlit as st
-
+from io import BytesIO
 # import gradio as gr
 # Def_04 Docx file to translated_Docx file
 from transformers import MarianMTModel, MarianTokenizer
@@ -80,9 +80,10 @@ def btTranslator(docxfile):
       translated_paragraphs += [" ".join(translated)]
       files.add_paragraph(translated)
   translated_text = "\n".join(translated_paragraphs)
-  files=files.save("Translated.docx")
-  #f=files.save(f"NewFileName.docx")
-  return files
+  #files=files.save("Translated.docx")
+  binary_output = BytesIO()
+  f=files.save(binary_output)
+  return f
   #return translated_text
 st.title('Translator App')
 st.markdown("Translate from Docx file")
@@ -91,5 +92,5 @@ st.sidebar.subheader("File Upload")
 datas=st.sidebar.file_uploader("Original File")
 #data=getText("C:\Users\Ambresh C\Desktop\Python Files\Translators\Trail Doc of 500 words.docx")
 
-st.sidebar.download_button(label='Download Translated File',file_name='Translated.docx', data=btTranslator(datas),mime="text/csv") 
+st.sidebar.download_button(label='Download Translated File',file_name='Translated.docx', data=btTranslator(datas).getvalue(),mime="text/csv") 
 # st.text_area(label="",value=btTranslator(datas),height=100)
