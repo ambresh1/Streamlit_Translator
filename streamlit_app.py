@@ -57,7 +57,7 @@ def btTranslator(docxfile):
   translated_paragraphs = []
 
 
-  for _, paragraph in zip(stqdm(len(paragraphs)),paragraphs):
+  for _, paragraph in zip(stqdm(paragraphs),paragraphs):
     # ######################################
       #total=len(paragraphs)
       #print_progress_bar(index, total, "Percentage Bar")
