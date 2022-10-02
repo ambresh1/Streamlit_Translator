@@ -43,7 +43,7 @@ tokenizer = MarianTokenizer.from_pretrained(mname)
 model = MarianMTModel.from_pretrained(mname)
 model.to(device)
 
-
+@st.cache
 def btTranslator(docxfile):
   a=getText(docxfile)
   a1=a.split('\n')
@@ -91,5 +91,5 @@ st.sidebar.subheader("File Upload")
 datas=st.sidebar.file_uploader("Original File")
 #data=getText("C:\Users\Ambresh C\Desktop\Python Files\Translators\Trail Doc of 500 words.docx")
 
-st.sidebar.download_button(label='Download Translated File',file_name='Translated.docx', data=btTranslator(datas)) 
+st.sidebar.download_button(label='Download Translated File',file_name='Translated.docx', data=btTranslator(datas),mime="text/csv") 
 # st.text_area(label="",value=btTranslator(datas),height=100)
