@@ -43,7 +43,7 @@ tokenizer = MarianTokenizer.from_pretrained(mname)
 model = MarianMTModel.from_pretrained(mname)
 model.to(device)
 
-@st.cache
+#@st.cache
 def btTranslator(docxfile):
   a=getText(docxfile)
   a1=a.split('\n')
