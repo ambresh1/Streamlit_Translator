@@ -62,7 +62,7 @@ def btTranslator(docxfile):
       print_progress_bar(index, total, "Percentage Bar")
       sleep(0.5)
       st.progress(index)
-      do_something_slow()
+      #do_something_slow()
 
     # ######################################
       sentences = sent_tokenize(paragraph)
