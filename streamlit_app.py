@@ -61,7 +61,7 @@ def btTranslator(docxfile):
       total=len(paragraphs)
       print_progress_bar(index, total, "Percentage Bar")
       sleep(0.5)
-      St.progress(index)
+      st.progress(index)
       do_something_slow()
 
     # ######################################
