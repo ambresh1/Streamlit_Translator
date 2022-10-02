@@ -1,3 +1,4 @@
+nltk
 python-docx
 sentencepiece
 torch
