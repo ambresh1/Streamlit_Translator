@@ -88,4 +88,4 @@ datas=st.sidebar.file_uploader("Original File")
 # data=getText("C:\Users\Ambresh C\Desktop\Python Files\Translators\Trail Doc of 500 words.docx")
 
 #st.sidebar.download_button(label='Download Translated File',file_name='Translated.docx', data=btTranslator(datas)) 
-st.write(btTranslator(datas))
+st.text_area(label="",value=btTranslator(datas),height=100)
