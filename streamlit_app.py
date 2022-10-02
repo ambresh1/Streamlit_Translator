@@ -11,6 +11,7 @@ import math
 import torch
 from docx import Document
 from time import sleep
+from stqdm import stqdm
 
 import docx
 def getText(filename):
@@ -56,13 +57,14 @@ def btTranslator(docxfile):
   translated_paragraphs = []
 
 
-  for index, paragraph in enumerate(paragraphs):
+  for _, paragraph in zip(stqdm(len(paragraphs)),paragraphs):
     # ######################################
-      total=len(paragraphs)
-      print_progress_bar(index, total, "Percentage Bar")
+      #total=len(paragraphs)
+      #print_progress_bar(index, total, "Percentage Bar")
       sleep(0.5)
-      st.progress()
+      #st.progress()
       #do_something_slow()
+      
 
     # ######################################
       sentences = sent_tokenize(paragraph)
