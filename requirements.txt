@@ -1,5 +1,5 @@
 nltk
-io
+requires.io
 python-docx
 sentencepiece
 torch
